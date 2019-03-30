@@ -116,9 +116,11 @@
             var canvas = document.getElementById('canvas'),
             ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-             x = o.pageX;
-             y = o.pageY;
-             draw();
+            window.addEventListener("touchmove", function(x) {
+                x = x.pageX;
+                y = x.pageY;
+                draw();
+            })
         
         } 
     })
