@@ -97,7 +97,8 @@
     window.addEventListener("deviceorientation", function(o) {
         if (Math.abs(window.orientation) === 90) {          // Landscape
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-        } else {                                            // Portrait
+        } 
+        else {                                            // Portrait
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
     })
