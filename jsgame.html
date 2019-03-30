@@ -22,6 +22,7 @@
 
     <!-- Clear Button -->
     <button onclick="clearcanvas()">Clear</button>
+    <p>Woot</p>
 
 <script type="text/javascript">
 
@@ -110,19 +111,23 @@
     })
 
     // Change Orientation
-    window.addEventListener("deviceorientation", function(o) {
-        if (Math.abs(window.orientation) === 90) {          // Landscape
-            var canvas = document.getElementById('canvas'),
-            ctx = canvas.getContext("2d");
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            window.addEventListener("touchmove", function(x) {
-                x = x.pageX;
-                y = x.pageY;
-                draw();
-            })
+    // window.addEventListener("deviceorientation", function(o) {
+    //     if (Math.abs(window.orientation) === 90) {          // Landscape
+    //         var canvas = document.getElementById('canvas'),
+    //         ctx = canvas.getContext("2d");
+    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //         window.addEventListener("touchmove", function(x) {
+    //             x = x.pageX;
+    //             y = x.pageY;
+    //             draw();
+    //         })
         
-        } 
-    })
+    //     } 
+    // })
+
+    window.addEventListener("orientationchange", function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }, false);
 
 </script>
 
