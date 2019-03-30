@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Owner: Suhas Maganti -->
+    <!-- Worked with: Kyle Essenmacher -->
 	<meta charset="UTF-8">
+    <meta name = 'viewport' content='width=device-width, initial-scale=1'>
 	<title>My Game</title>
 	<style type="text/css">
 		canvas{
@@ -12,10 +15,13 @@
 
 </head>
 <body>
-	<canvas id="canvas" width="500" height="500" ></canvas>
+	<canvas id="canvas"></canvas>
 
 	<!-- Color Picker -->
 	<input type = "color" color="000000" id = "colorpicker">
+
+    <!-- Clear Button -->
+    <button onclick="clearcanvas()">Clear</button>
 
 <script type="text/javascript">
 
@@ -23,10 +29,14 @@
 	var canvas = document.querySelector("canvas");
 	var ctx = canvas.getContext("2d");
 
+    // canvas.style.height = "80%";
+    // canvas.style.width = "80%";
+
+
 	var x = 0;
 	var y = 0;
 	var color = "#FF0000";
-	var radius = 20;
+	var radius = 10;
 
 	function draw(){
 		ctx.beginPath();
@@ -74,6 +84,12 @@
     	}
     })
 
+    function clearcanvas() {
+        var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
     // Change Pen Size
     window.addEventListener("keydown", function(r) {
         if(r.keyCode==38) {                         //Increase pen size
@@ -97,11 +113,12 @@
     // Change Orientation
     window.addEventListener("deviceorientation", function(o) {
         if (Math.abs(window.orientation) === 90) {          // Landscape
+            var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
         } 
     })
-
-
 
 </script>
 
