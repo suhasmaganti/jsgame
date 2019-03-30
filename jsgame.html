@@ -85,14 +85,6 @@
     })
 
     // Touchscreen
-    // window.addEventListener("touchstart", function(t) {
-    //     // console.log(e.pageX);
-    //     // console.log(e.pageY);
-    //     x = t.pageX;
-    //     y = t.pageY;
-    //     draw();
-    // })
-
     window.addEventListener("touchmove", function(m) {
         // console.log(e.pageX);
         // console.log(e.pageY);
@@ -100,6 +92,15 @@
         y = m.pageY;
         draw();
     })
+
+    // Change Orientation
+    window.addEventListener("deviceorientation", function(o) {
+        if (Math.abs(window.orientation) === 90) {          // Landscape
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else {                                            // Portrait
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    }
 
 
 
