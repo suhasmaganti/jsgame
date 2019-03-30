@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>My Game</title>
+	<style type="text/css">
+		canvas{
+			border: 5px solid black;
+		}
+	</style>
+
+
+</head>
+<body>
+	<canvas id="canvas" width="500" height="500" ></canvas>
+
+	<!-- Color Picker -->
+	<input type = "color" color="000000" id = "colorpicker">
+
+<script type="text/javascript">
+
+	//Canvas
+	var canvas = document.querySelector("canvas");
+	var ctx = canvas.getContext("2d");
+
+	var x = 0;
+	var y = 0;
+	var color = "#FF0000";
+	var radius = 20;
+
+	function draw(){
+		ctx.beginPath();
+		ctx.fillStyle = color;
+		ctx.arc(x,y,radius,0,2*Math.PI);
+		ctx.fill();
+    }
+
+    // Move Pen
+    window.addEventListener("mousemove", function(e) {
+    	// console.log(e.pageX);
+    	// console.log(e.pageY);
+    	x = e.pageX;
+    	y = e.pageY;
+    	draw();
+    })
+
+    // Change Pen color with keys
+    window.addEventListener("keydown", function(c) {
+    	if(c.keyCode==66) {
+    		(color = "#0000FF");
+    	}
+    	if(c.keyCode==89) {
+    		(color = "#FFFF00");
+    	}
+    	if(c.keyCode==71) {
+    		(color = "#008000");
+    	}
+    	if(c.keyCode==82) {
+    		(color = "#FF0000");
+    	}
+
+    })
+
+    // Color Picker
+	var theInput = document.getElementById("colorpicker");
+	theInput.addEventListener("input", function() {
+		color = theInput.value;
+    }, false);
+
+    // Clear Canvas
+    window.addEventListener("keydown", function(s) {
+    	if(s.keyCode==32) {
+    		ctx.clearRect(0, 0, canvas.width, canvas.height);
+    	}
+    })
+
+    // Change Pen Size
+    window.addEventListener("keydown", function(r) {
+        if(r.keyCode==38) {                         //Increase pen size
+            radius += 1;
+        }
+        if(r.keyCode==40 && radius > 1) {           //Decrease pen size      
+            radius -= 1;
+        }
+    })
+
+    // Touchscreen
+    // window.addEventListener("touchstart", function(t) {
+    //     // console.log(e.pageX);
+    //     // console.log(e.pageY);
+    //     x = t.pageX;
+    //     y = t.pageY;
+    //     draw();
+    // })
+
+    window.addEventListener("touchmove", function(m) {
+        // console.log(e.pageX);
+        // console.log(e.pageY);
+        x = m.pageX;
+        y = m.pageY;
+        draw();
+    })
+
+
+
+</script>
+
+
+</body>
+</html>
