@@ -85,6 +85,14 @@
     })
 
     // Touchscreen
+     window.addEventListener("touchstart", function(t) {
+        // console.log(e.pageX);
+        // console.log(e.pageY);
+        x = t.pageX;
+        y = t.pageY;
+        draw();
+    })
+
     window.addEventListener("touchmove", function(m) {
         // console.log(e.pageX);
         // console.log(e.pageY);
