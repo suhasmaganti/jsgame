@@ -101,7 +101,6 @@
     })
 
     // Touchscreen
-
     window.addEventListener("touchmove", function(m) {
         // console.log(e.pageX);
         // console.log(e.pageY);
@@ -110,7 +109,7 @@
         draw();
     })
 
-    Change Orientation
+    // Change Orientation
     window.addEventListener("deviceorientation", function(o) {
         if (Math.abs(window.orientation) === 90) {          // Landscape
             var canvas = document.getElementById('canvas'),
