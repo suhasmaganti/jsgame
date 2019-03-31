@@ -26,12 +26,18 @@
 <script type="text/javascript">
 
 	//Canvas
-	var canvas = document.querySelector("canvas");
-	var ctx = canvas.getContext("2d");
+	// var canvas = document.querySelector("canvas");
+	// var ctx = canvas.getContext("2d");
+
+    var canvas = document.querySelector("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var ctx = canvas.getContext("2d");
 
     // Set canvas to 80% of page
-    canvas.style.height = "80%";
-    canvas.style.width = "80%";
+    canvas.width *= .8;
+    canvas.height *= .8;
+
 
     // Pen Variables
 	var x = 0;
